@@ -82,10 +82,11 @@ const sections = [
               headline.
             </li>
             <li>
-              <strong>Product usage data.</strong> By default, T3 Code sends us anonymous usage
-              data, such as which provider and model a turn used, whether it succeeded, and your app
-              version and operating system. We use it to improve the product. You can turn this off
-              at any time; see “Product Usage Data” under Your Choices below.
+              <strong>Product usage data.</strong> Only if you turn it on, T3 Code sends us
+              anonymous usage data, such as which provider and model a turn used, whether it
+              succeeded, and your app version and operating system. We use it to improve the
+              product. It is off by default and you can turn it off again at any time; see “Product
+              Usage Data” under Your Choices below.
             </li>
             <li>
               <strong>Information you provide to us.</strong> We collect information that you choose
@@ -344,9 +345,10 @@ const sections = [
 
           <h3>Product Usage Data</h3>
           <p>
-            To stop sending product usage data, set the environment variable{" "}
-            <code>T3CODE_TELEMETRY_ENABLED=false</code>{" "}where T3 Code runs, for example in your
-            shell profile, and restart T3 Code.
+            Product usage data is sent only when the environment variable{" "}
+            <code>T3CODE_TELEMETRY_ENABLED=true</code>{" "}is set where T3 Code runs, for example in
+            your shell profile. To stop sending it, remove the variable or set it to{" "}
+            <code>false</code>, and restart T3 Code.
           </p>
 
           <h3>Cookies and Local Data</h3>
