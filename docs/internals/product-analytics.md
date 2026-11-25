@@ -1,6 +1,6 @@
 # Product analytics
 
-The server owns analytics delivery, opt-out, and identity for every connected client.
+The server owns analytics delivery, consent, and identity for every connected client.
 Clients do not load the PostHog browser SDK. Client-use events require an
 authenticated connection, so visiting the hosted app without connecting does not
 count as product use.
@@ -149,6 +149,8 @@ send prompts, authentication material, raw provider payloads, user-assigned devi
 names, or conversation identifiers. Client metadata is best effort; invalid values
 must not reject a connection. PostHog person profiles remain disabled.
 
-Dev-runner servers and the CI archive smoke test turn telemetry off, which also
-stops relay tracing, because each would count as a new install. Set
-`T3CODE_TELEMETRY_ENABLED=true` to test analytics or relay tracing from a dev server.
+Telemetry and relay tracing are opt-in: only `T3CODE_TELEMETRY_ENABLED=true` turns them on, so
+every reader of that variable, including desktop shell discovery, must treat unset or
+unrecognized as off. Dev-runner servers keep it `false` unless you set it yourself, and the CI
+archive smoke test sets it to `false`, so neither counts as a new install. Set it to `true` to
+test analytics or relay tracing from a dev server.
